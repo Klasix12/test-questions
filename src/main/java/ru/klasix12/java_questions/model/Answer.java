@@ -4,20 +4,18 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "questions")
+@Table(name = "answers")
 @Data
 @Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class Question {
+public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String text;
-    private Difference difference;
-    private String theme;
-    private Language language;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Answer answer;
+    private String rightAnswer;
+    private String fakeAnswer1;
+    private String fakeAnswer2;
+    private String fakeAnswer3;
 }
