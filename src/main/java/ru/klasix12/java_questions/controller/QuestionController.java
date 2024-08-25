@@ -1,6 +1,7 @@
 package ru.klasix12.java_questions.controller;
 
 import org.springframework.web.bind.annotation.*;
+import ru.klasix12.java_questions.model.Difference;
 import ru.klasix12.java_questions.model.Language;
 import ru.klasix12.java_questions.model.Question;
 import ru.klasix12.java_questions.model.QuestionRequest;
@@ -31,4 +32,10 @@ public class QuestionController {
     public List<Question> getQuestionsByLanguage(@PathVariable("language") String language) {
         return questionService.getQuestionsByLanguage(Language.valueOf(language));
     }
+
+    @GetMapping("/get-questions-by-difference/{difference}")
+    public List<Question> getQuestionsByDifference(@PathVariable("difference") String difference) {
+        return questionService.getQuestionsByDifference(Difference.valueOf(difference));
+    }
+
 }

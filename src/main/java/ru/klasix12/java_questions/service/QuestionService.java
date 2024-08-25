@@ -1,10 +1,7 @@
 package ru.klasix12.java_questions.service;
 
 import org.springframework.stereotype.Service;
-import ru.klasix12.java_questions.model.Answer;
-import ru.klasix12.java_questions.model.Language;
-import ru.klasix12.java_questions.model.Question;
-import ru.klasix12.java_questions.model.QuestionRequest;
+import ru.klasix12.java_questions.model.*;
 import ru.klasix12.java_questions.repository.QuestionRepository;
 
 import java.util.List;
@@ -34,5 +31,9 @@ public class QuestionService {
 
     public List<Question> getQuestionsByLanguage(Language language) {
         return questionRepository.findAllByLanguage(language);
+    }
+
+    public List<Question> getQuestionsByDifference(Difference difference) {
+        return questionRepository.findAllByDifference(difference);
     }
 }
