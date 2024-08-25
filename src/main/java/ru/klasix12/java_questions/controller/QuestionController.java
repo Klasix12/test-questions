@@ -1,6 +1,7 @@
 package ru.klasix12.java_questions.controller;
 
 import org.springframework.web.bind.annotation.*;
+import ru.klasix12.java_questions.model.Language;
 import ru.klasix12.java_questions.model.Question;
 import ru.klasix12.java_questions.model.QuestionRequest;
 import ru.klasix12.java_questions.service.QuestionService;
@@ -24,5 +25,10 @@ public class QuestionController {
     @GetMapping("/get-questions")
     public List<Question> getQuestions() {
         return questionService.getQuestions();
+    }
+
+    @GetMapping("/get-questions-by-language/{language}")
+    public List<Question> getQuestionsByLanguage(@PathVariable("language") String language) {
+        return questionService.getQuestionsByLanguage(Language.valueOf(language));
     }
 }
