@@ -18,24 +18,23 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
-    @PostMapping("/add-question")
+    @PostMapping("/add")
     public long addQuestion(@ModelAttribute QuestionRequest questionRequest) {
         return questionService.addNewQuestion(questionRequest);
     }
 
-    @GetMapping("/get-questions")
+    @GetMapping("/get")
     public List<Question> getQuestions() {
         return questionService.getQuestions();
     }
 
-    @GetMapping("/get-questions-by-language/{language}")
+    @GetMapping("/get-by-language/{language}")
     public List<Question> getQuestionsByLanguage(@PathVariable("language") String language) {
         return questionService.getQuestionsByLanguage(Language.valueOf(language));
     }
 
-    @GetMapping("/get-questions-by-difference/{difference}")
+    @GetMapping("/get-by-difference/{difference}")
     public List<Question> getQuestionsByDifference(@PathVariable("difference") String difference) {
         return questionService.getQuestionsByDifference(Difference.valueOf(difference));
     }
-
 }
